@@ -1,334 +1,103 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kantin/Routing/Routes.dart';
-import 'package:kantin/admin/controller/controlleradmin.dart';
-
-class SocialMedia extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: AdminPage(),
-    );
-  }
-}
+import 'package:date_field/date_field.dart';
+import '../admin/permintaan/permintaan.dart';
+import '../admin/admin_riwayat/ad_riwayat.dart';
+import '../navbar.dart';
+import 'package:flutter/services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:io';
 
 class AdminPage extends StatefulWidget {
+  const AdminPage({super.key});
+
   @override
-  _AdminPageState createState() => _AdminPageState();
+  State<AdminPage> createState() => _AdminPageState();
 }
 
 class _AdminPageState extends State<AdminPage> {
-  final controller = Get.find<tambahusercontroller>();
-  int _ongkir = 100;
-  int _count = -0;
-  int _selectedItemIndex = 0;
-  int active = 0;
-  void _incrementCount() {
-    setState(() {
-      _count--;
-    });
-  }
-
-  void _decrementCount() {
-    setState(() {
-      _count++;
-    });
-  }
-
   @override
+  void dispose() {
+    SystemChrome.setEnabledSystemUIOverlays(
+        [SystemUiOverlay.top, SystemUiOverlay.bottom]);
+    super.dispose();
+  }
+
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
+      statusBarColor: Color.fromARGB(0, 78, 2, 2),
     ));
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
-          drawer: buildsidebar(),
+          drawer: NavBar(),
           appBar: AppBar(
-            iconTheme:
-                IconThemeData(color: Color.fromARGB(255, 6, 1, 61), size: 28),
-            backgroundColor: Colors.white,
+            iconTheme: IconThemeData(color: Color.fromARGB(255, 0, 0, 0)),
             elevation: 0,
-            title: Text("Admin"),
-            titleTextStyle: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w700,
-                color: Color.fromARGB(255, 6, 1, 61)),
-            centerTitle: true,
-          ),
-          body: Container(
-            padding: EdgeInsets.only(left: 10, right: 10),
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            backgroundColor: Color.fromARGB(255, 188, 251, 255),
+            title: Row(
               children: [
                 Container(
-                  child: Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () => Get.toNamed(Routes.TAMBAHUSER),
-                        child: Container(
-                          padding: EdgeInsets.only(top: 5),
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 0, 32, 58),
-                              borderRadius: BorderRadius.circular(5)),
-                          height: 40,
-                          width: 180,
-                          child: Text(
-                            "Tambah user",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 23,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      GestureDetector(
-                        onTap: () => Get.toNamed(Routes.LOGAKTIV),
-                        child: Container(
-                          padding: EdgeInsets.only(top: 5),
-                          height: 40,
-                          width: 170,
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 0, 32, 58),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Text(
-                            "Log Aktivitas",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 23,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      )
-                    ],
+                  padding: EdgeInsets.only(left: 60),
+                  child: Text(
+                    'Enjoy.',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 3,
                 ),
-                Text(
-                  "Akun pengguna",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                Container(
+                  child: Text(
+                    'ID',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 226, 147, 0),
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                Flexible(
-                    child: StreamBuilder<QuerySnapshot<Object?>>(
-                  stream: controller.streamData(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.active) {
-                      var users = snapshot.data!.docs;
-                      return ListView.builder(
-                        itemCount: users.length,
-                        padding: EdgeInsets.symmetric(horizontal: 15),
-                        itemBuilder: (context, index) => Container(
-                          margin: EdgeInsets.only(top: 15),
-                          padding: EdgeInsets.symmetric(horizontal: 7),
-                          height: 110,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.black,
-                                    offset: Offset(0.0, 1.0),
-                                    spreadRadius: 1,
-                                    blurRadius: 2)
-                              ]),
-                          child: Column(
-                            children: [
-                              Container(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Container(
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "Nama",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(
-                                            "${(users[index].data() as Map<String, dynamic>)["nama"]}",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontWeight: FontWeight.bold),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "jenkel",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(
-                                            "${(users[index].data() as Map<String, dynamic>)["jeniskelamin"]}",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "Typeuser",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(
-                                            "${(users[index].data() as Map<String, dynamic>)["typeuser"]}",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Container(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () => controller
-                                          .deleteuser(users[index].id),
-                                      child: Container(
-                                        padding:
-                                            EdgeInsets.symmetric(vertical: 10),
-                                        width: 120,
-                                        height: 40,
-                                        child: Text(
-                                          "Hapus",
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              color: Colors.white),
-                                        ),
-                                        decoration: BoxDecoration(
-                                            color: Colors.red,
-                                            borderRadius:
-                                                BorderRadius.circular(5)),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 40,
-                                    ),
-                                    Container(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 10),
-                                      width: 120,
-                                      height: 40,
-                                      child: Text(
-                                        "Edit",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 17, color: Colors.white),
-                                      ),
-                                      decoration: BoxDecoration(
-                                          color: Color.fromARGB(255, 7, 204, 0),
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      );
-                    }
-                    return Center(child: CircularProgressIndicator());
-                  },
-                ))
               ],
             ),
-          )),
-    );
-  }
-
-  Widget buildsidebar() {
-    return Drawer(
-      child: ListView(children: [
-        UserAccountsDrawerHeader(
-          decoration: BoxDecoration(
-            color: Color.fromARGB(255, 24, 38, 88),
-          ),
-          accountName: Text(
-            "Rangga Fatur (kasir)",
-            style: TextStyle(fontSize: 25, color: Colors.white),
-          ),
-          accountEmail:
-              Text("Rangga@gmail.com", style: TextStyle(color: Colors.white)),
-        ),
-        Container(
-          width: 190,
-          height: 55,
-          margin: EdgeInsets.only(left: 10, top: 15, right: 20),
-          padding: EdgeInsets.only(left: 15),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Color.fromARGB(255, 24, 38, 88),
-          ),
-          child: Row(
-            children: [
-              Icon(
-                Icons.logout,
-                size: 33,
-                color: Colors.white,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                "Logout",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+            centerTitle: true,
+            bottom: TabBar(tabs: [
+              Tab(
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    'Permintaan',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
-              )
-            ],
+              ),
+              Tab(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(0, 255, 255, 255),
+                  ),
+                  child: Text(
+                    'Riwayat',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+            ]),
           ),
-        )
-      ]),
+          body: TabBarView(
+            children: [PermintaanPage(), AdminRiwayatPage()],
+          )),
     );
   }
 }

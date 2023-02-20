@@ -44,40 +44,39 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCScCSWyoVeiQd7NJqyzjzAkRA7nvXZMgk',
-    appId: '1:239748318084:web:74c51387ad31df4d6dd3d1',
-    messagingSenderId: '239748318084',
-    projectId: 'kasir-firebase-7a0ed',
-    authDomain: 'kasir-firebase-7a0ed.firebaseapp.com',
-    storageBucket: 'kasir-firebase-7a0ed.appspot.com',
-    measurementId: 'G-83VDQQXB3X',
+    apiKey: 'AIzaSyAEAWBq82iUV0mKX7hxsNVQfM1UZ_Fz11g',
+    appId: '1:719259236347:web:176249999d6358b4c63d5e',
+    messagingSenderId: '719259236347',
+    projectId: 'ukk1-agil',
+    authDomain: 'ukk1-agil.firebaseapp.com',
+    storageBucket: 'ukk1-agil.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA6iC4hj4-B_XmgpYy0RRcRNk6zqXtFAmw',
-    appId: '1:239748318084:android:8ef5ffd09fbd2fdf6dd3d1',
-    messagingSenderId: '239748318084',
-    projectId: 'kasir-firebase-7a0ed',
-    storageBucket: 'kasir-firebase-7a0ed.appspot.com',
+    apiKey: 'AIzaSyAr2lYrAZDeMxgrqdyCeksAIEwogLug9ec',
+    appId: '1:719259236347:android:1dea84a12c2f4755c63d5e',
+    messagingSenderId: '719259236347',
+    projectId: 'ukk1-agil',
+    storageBucket: 'ukk1-agil.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAilVwO2mfkFcAhT2ySdClVeK6j8KvkLJs',
-    appId: '1:239748318084:ios:cf6e96fa31277fd06dd3d1',
-    messagingSenderId: '239748318084',
-    projectId: 'kasir-firebase-7a0ed',
-    storageBucket: 'kasir-firebase-7a0ed.appspot.com',
-    iosClientId: '239748318084-foh1bsk8tg8s3bfim0hfqmansbvf3bna.apps.googleusercontent.com',
-    iosBundleId: 'com.pembuatanprogram.kantin',
+    apiKey: 'AIzaSyD9iGu8c3GUeSOexqlhuI6m5l4Nxg4K_uk',
+    appId: '1:719259236347:ios:eaf79fe7f307f292c63d5e',
+    messagingSenderId: '719259236347',
+    projectId: 'ukk1-agil',
+    storageBucket: 'ukk1-agil.appspot.com',
+    iosClientId: '719259236347-rnrov3978303m7pmu5di82qblk7o3c9k.apps.googleusercontent.com',
+    iosBundleId: 'com.example.ukkRevisi',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAilVwO2mfkFcAhT2ySdClVeK6j8KvkLJs',
-    appId: '1:239748318084:ios:cf6e96fa31277fd06dd3d1',
-    messagingSenderId: '239748318084',
-    projectId: 'kasir-firebase-7a0ed',
-    storageBucket: 'kasir-firebase-7a0ed.appspot.com',
-    iosClientId: '239748318084-foh1bsk8tg8s3bfim0hfqmansbvf3bna.apps.googleusercontent.com',
-    iosBundleId: 'com.pembuatanprogram.kantin',
+    apiKey: 'AIzaSyD9iGu8c3GUeSOexqlhuI6m5l4Nxg4K_uk',
+    appId: '1:719259236347:ios:eaf79fe7f307f292c63d5e',
+    messagingSenderId: '719259236347',
+    projectId: 'ukk1-agil',
+    storageBucket: 'ukk1-agil.appspot.com',
+    iosClientId: '719259236347-rnrov3978303m7pmu5di82qblk7o3c9k.apps.googleusercontent.com',
+    iosBundleId: 'com.example.ukkRevisi',
   );
 }
