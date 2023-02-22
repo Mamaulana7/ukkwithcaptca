@@ -181,27 +181,27 @@ class _RiwayatPageState extends State<RiwayatPage> {
 //                                   SizedBox(
 //                                     width: 1,
 //                                   ),
-//                                   Container(
-//                                     decoration: BoxDecoration(
-//                                         color: Color.fromARGB(0, 255, 193, 7)),
-//                                     width: 200,
-//                                     margin: EdgeInsets.only(left: 23),
-//                                     child: TextButton(
-//                                       onPressed: () {
-//                                         controller
-//                                             .deleteData(carddata[index].id);
-//                                       },
-//                                       child: Text(
-//                                         'Hapus',
-//                                         style: GoogleFonts.secularOne(
-//                                           textStyle: TextStyle(
-//                                             color: Colors.red,
-//                                             fontSize: 17,
-//                                           ),
-//                                         ),
-//                                       ),
-//                                     ),
-//                                   )
+                                  // Container(
+                                  //   decoration: BoxDecoration(
+                                  //       color: Color.fromARGB(0, 255, 193, 7)),
+                                  //   width: 200,
+                                  //   margin: EdgeInsets.only(left: 23),
+                                  //   child: TextButton(
+                                  //     onPressed: () {
+                                  //       controller
+                                  //           .deleteData(carddata[index].id);
+                                  //     },
+                                  //     child: Text(
+                                  //       'Hapus',
+                                  //       style: GoogleFonts.secularOne(
+                                  //         textStyle: TextStyle(
+                                  //           color: Colors.red,
+                                  //           fontSize: 17,
+                                  //         ),
+                                  //       ),
+                                  //     ),
+                                  //   ),
+                                  // )
 //                                 ],
 //                               ),
 //                             ),

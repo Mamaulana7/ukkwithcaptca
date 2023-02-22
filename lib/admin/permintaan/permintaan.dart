@@ -181,7 +181,7 @@ class _PermintaanPageState extends State<PermintaanPage> {
                                   Obx(
                                     () => Container(
                                       margin: EdgeInsets.only(left: 20),
-                                      width: 190,
+                                      width: 160,
                                       height: 30,
                                       child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
@@ -208,25 +208,30 @@ class _PermintaanPageState extends State<PermintaanPage> {
                                     width: 1,
                                   ),
                                   Obx(
-                                    () => ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                          padding: EdgeInsets.only(left: 5),
-                                          primary: Color.fromARGB(
-                                              253, 20, 161, 243)),
-                                      onPressed: () {
-                                        if (controller.isLoading.isFalse) {
-                                          controller.terima();
-                                        }
-                                      },
-                                      child: Text(
-                                        (controller.isLoading.isFalse)
-                                            ? 'Tolak'
-                                            : 'Loading...',
-                                        style: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 255, 255, 255),
-                                          fontSize: 16,
-                                          fontFamily: 'poppins',
+                                    () => Container(
+                                      margin: EdgeInsets.only(left: 10),
+                                      width: 160,
+                                      height: 30,
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                            padding: EdgeInsets.only(left: 5),
+                                            primary: Color.fromARGB(
+                                                253, 20, 161, 243)),
+                                        onPressed: () {
+                                          if (controller.isLoading.isFalse) {
+                                            controller.terima();
+                                          }
+                                        },
+                                        child: Text(
+                                          (controller.isLoading.isFalse)
+                                              ? 'Tolak'
+                                              : 'Loading...',
+                                          style: TextStyle(
+                                            color: Color.fromARGB(
+                                                255, 255, 255, 255),
+                                            fontSize: 16,
+                                            fontFamily: 'poppins',
+                                          ),
                                         ),
                                       ),
                                     ),

@@ -244,11 +244,7 @@ class _RegisterPage extends State<RegisterPage> {
                                       !(controller.obsecureText.value);
                                 },
                               ),
-                              // hintStyle: TextStyle(
-                              //   fontSize: 14,
-                              //   fontFamily: 'poppins',
-                              //   fontWeight: FontWeight.w500,
-                              // ),
+
                             ),
                           )),
                     ),

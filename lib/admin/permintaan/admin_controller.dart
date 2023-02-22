@@ -63,7 +63,7 @@ class AdminPermintaanController extends GetxController {
       // buat uid di database baru
       var uuiddata = Uuid().v1();
 
-      await datasCollection.doc('data_id').update({"status": 1});
+      await datasCollection.doc('dataid').update({"status": 1});
       Get.back(); // Tutup Dialog
       CustomToast.successToast("Success", "Perjalanan Diperbolehkan");
       isLoadingTolak.value = false;
@@ -83,7 +83,6 @@ class AdminPermintaanController extends GetxController {
     isLoadingTolak.value = true;
     try {
       String uid = auth.currentUser!.uid;
-      //memanggil collection journal yang ada di collection student
       CollectionReference<Map<String, dynamic>> dataCollection =
           await firestore.collection("users").doc(uid).collection("datauser");
       CollectionReference<Map<String, dynamic>> datasCollection =
@@ -92,7 +91,7 @@ class AdminPermintaanController extends GetxController {
       // buat uid di database baru
       var uuiddata = Uuid().v1();
 
-      await datasCollection.doc('data_id').update({"status": 2});
+      await datasCollection.doc('status').update({'status': 2});
       Get.back(); // Tutup Dialog
       CustomToast.successToast("Success", "Perjalanan Ditolak");
       isLoadingTolak.value = false;

@@ -16,8 +16,8 @@ class UbahController extends GetxController {
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  Future<DocumentSnapshot<Object?>> dapatkanData(String nama) async {
-    DocumentReference data = firestore.collection("datauser").doc(nama);
+  Future<DocumentSnapshot<Object?>> dapatkanData(String dataid) async {
+    DocumentReference data = firestore.collection("datauser").doc(dataid);
     return data.get();
   }
 

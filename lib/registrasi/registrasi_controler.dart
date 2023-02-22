@@ -22,9 +22,7 @@ class RegistrationController extends GetxController {
   String? selectedValue;
 
   Future<void> registration() async {
-    //apakah password kosong
     if (passC.text.isNotEmpty) {
-      // loading menjadi true sehingga muncul loading
       isLoading.value = true;
       try {
         // jika password sama maka  akan dibuatkan akun untuk siswa

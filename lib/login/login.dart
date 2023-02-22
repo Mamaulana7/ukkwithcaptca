@@ -152,7 +152,7 @@ class LoginPage extends GetView<LoginController> {
                       ),
                     ),
                     SizedBox(
-                      height: 90,
+                      height: 230,
                     ),
                     Obx(
                       () => Container(
@@ -195,28 +195,58 @@ class LoginPage extends GetView<LoginController> {
                           await controller.login();
                         }
                       },
-                      child: Container(
-                        margin: EdgeInsets.only(left: 20, right: 20),
-                        height: 38,
-                        width: 315,
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 252, 77, 77),
-                            borderRadius: BorderRadius.circular(3)),
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.red.shade400,
-                          ),
-                          onPressed: () => Get.toNamed(Routes.REGISTRATION),
-                          child: Text(
-                            'Registrasi',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.w400,
+                      child: Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(left: 45, bottom: 20),
+                            child: Text(
+                              "Belum Memiliki Akun ?",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 17,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ),
-                        ),
+                          Container(
+                            margin: EdgeInsets.only(bottom: 20),
+                            child: TextButton(
+                              onPressed: () => Get.toNamed(Routes.REGISTRATION),
+                              child: Text(
+                                'Registrasi',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 2, 132, 192),
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                          ),
+                          // Container(
+                          //   margin: EdgeInsets.only(left: 20, right: 20),
+                          //   height: 38,
+                          //   width: 315,
+                          //   decoration: BoxDecoration(
+                          //       color: Color.fromARGB(255, 252, 77, 77),
+                          //       borderRadius: BorderRadius.circular(3)),
+                          //   child: ElevatedButton(
+                          //     style: ElevatedButton.styleFrom(
+                          //       primary: Colors.red.shade400,
+                          //     ),
+                          //     onPressed: () => Get.toNamed(Routes.REGISTRATION),
+                          //     child: Text(
+                          //       'Registrasi',
+                          //       textAlign: TextAlign.center,
+                          //       style: TextStyle(
+                          //         color: Colors.white,
+                          //         fontSize: 25,
+                          //         fontWeight: FontWeight.w400,
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                        ],
                       ),
                     ),
                   ],

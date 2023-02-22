@@ -51,8 +51,8 @@ class RiwayatController extends GetxController {
     }
   }
 
-  void deleteData(String uid) {
-    DocumentReference docRef = firestore.collection("datauser").doc(uid);
+  void deleteData(String dataid) {
+    DocumentReference docRef = firestore.collection("datauser").doc(dataid);
     Get.defaultDialog(
       backgroundColor: Colors.white,
       title: "Hapus Data",
