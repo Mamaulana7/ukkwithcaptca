@@ -19,8 +19,12 @@ class AdminPermintaanController extends GetxController {
   TextEditingController terimaC = TextEditingController();
 
   Stream<QuerySnapshot<Object?>> Permintaan() {
-    CollectionReference data = firestore.collection("datauser");
-    return data.snapshots();
+    final data = firestore.collection("datauser").where("status",isEqualTo: 0).snapshots();
+    return data;
+  }
+  Stream<QuerySnapshot<Object?>> Riwayatminta() {
+    final data = firestore.collection("datauser").where("status", isNotEqualTo: 0).snapshots();
+    return data;
   }
 
   // Future<void> actionTerima() async {
@@ -50,22 +54,15 @@ class AdminPermintaanController extends GetxController {
   //     );
   //   }
   // }
-  terima() async {
+  updateStatus(int status, String dataid) async {
     isLoadingTolak.value = true;
+    DocumentReference doc = firestore.collection("datauser").doc(dataid);
     try {
-      String uid = auth.currentUser!.uid;
-      //memanggil collection journal yang ada di collection student
-      CollectionReference<Map<String, dynamic>> dataCollection =
-          await firestore.collection("users").doc(uid).collection("datauser");
-      CollectionReference<Map<String, dynamic>> datasCollection =
-          await firestore.collection("datauser");
-
-      // buat uid di database baru
-      var uuiddata = Uuid().v1();
-
-      await datasCollection.doc('dataid').update({"status": 1});
+      await doc.update({"status": status});
       Get.back(); // Tutup Dialog
-      CustomToast.successToast("Success", "Perjalanan Diperbolehkan");
+      status > 1
+          ? CustomToast.successToast("Success", "Perjalanan Ditolak")
+          : CustomToast.successToast("Success", "Perjalanan Diperbolehkan");
       isLoadingTolak.value = false;
     } catch (e) {
       Get.defaultDialog(
@@ -73,38 +70,8 @@ class AdminPermintaanController extends GetxController {
         middleText: "Tidak dapat merubah data",
         textConfirm: "Kembali",
         onConfirm: () {
-          Get.back();
         },
       );
     }
-  }
-
-  tolak() async {
-    isLoadingTolak.value = true;
-    try {
-      String uid = auth.currentUser!.uid;
-      CollectionReference<Map<String, dynamic>> dataCollection =
-          await firestore.collection("users").doc(uid).collection("datauser");
-      CollectionReference<Map<String, dynamic>> datasCollection =
-          await firestore.collection("datauser");
-
-      // buat uid di database baru
-      var uuiddata = Uuid().v1();
-
-      await datasCollection.doc('status').update({'status': 2});
-      Get.back(); // Tutup Dialog
-      CustomToast.successToast("Success", "Perjalanan Ditolak");
-      isLoadingTolak.value = false;
-    } catch (e) {
-      Get.defaultDialog(
-        title: "Terjadi kesalahan",
-        middleText: "Tidak dapat merubah data",
-        textConfirm: "Kembali",
-        onConfirm: () {
-          Get.back();
-        },
-      );
-    }
-    // }
   }
 }

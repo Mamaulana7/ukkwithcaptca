@@ -18,6 +18,7 @@ class _PermintaanPageState extends State<PermintaanPage> {
   TextEditingController _suhuC = TextEditingController();
 
   final controller = Get.find<AdminPermintaanController>();
+  // final Map<String, dynamic> statusData = Get.arguments;
 
   @override
   void initState() {
@@ -189,7 +190,11 @@ class _PermintaanPageState extends State<PermintaanPage> {
                                                 253, 20, 161, 243)),
                                         onPressed: () {
                                           if (controller.isLoading.isFalse) {
-                                            controller.tolak();
+                                            controller.updateStatus(
+                                                1,
+                                                (admindata[index].data() as Map<
+                                                    String,
+                                                    dynamic>)["dataid"]);
                                           }
                                         },
                                         child: Text(
@@ -219,7 +224,11 @@ class _PermintaanPageState extends State<PermintaanPage> {
                                                 253, 20, 161, 243)),
                                         onPressed: () {
                                           if (controller.isLoading.isFalse) {
-                                            controller.terima();
+                                            controller.updateStatus(
+                                                2,
+                                                (admindata[index].data() as Map<
+                                                    String,
+                                                    dynamic>)["dataid"]);
                                           }
                                         },
                                         child: Text(

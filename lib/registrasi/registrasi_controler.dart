@@ -1,8 +1,11 @@
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/get.dart';
+import 'package:firebase_storage/firebase_storage.dart' as s;
+import 'package:image_picker/image_picker.dart';
 import '../controllers/page_index_controller.dart';
 import '../widget/toast/custom_toach.dart';
 
@@ -16,6 +19,8 @@ class RegistrationController extends GetxController {
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   FirebaseAuth auth = FirebaseAuth.instance;
+  s.FirebaseStorage storage = s.FirebaseStorage.instance;
+  XFile? image;
 
   checkDefaultPassword() {}
 
@@ -31,9 +36,15 @@ class RegistrationController extends GetxController {
           email: emailC.text.trim(), // menghilangkan spasi
           password: passC.text,
         );
+
+        if (image != null) {
+          File file = File(image!.path);
+          await storage.ref(emailC.text).putFile(file);
+        }
         //Pengecekan apakah akun sudah dibuatkan oleh firebase
         if (respondentCredential.user != null) {
           String uid = respondentCredential.user!.uid;
+          String avatar = await storage.ref(emailC.text).getDownloadURL();
           DocumentReference respondents =
               firestore.collection("users").doc(uid);
           //Menyimpan data ke firebase dengan menggunakan perintah set
@@ -42,6 +53,7 @@ class RegistrationController extends GetxController {
             "email": emailC.text,
             "username": nameC.text.trim(),
             "password": passC.text,
+            "profil": avatar,
             "created_at": DateTime.now().toIso8601String(),
             "role": selectedValue.toString(),
           });
@@ -84,5 +96,12 @@ class RegistrationController extends GetxController {
     } else {
       CustomToast.errorToast('Error', 'Kata Sandi Harus Diisikan');
     }
+  }
+
+  Future getImage() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? imagePicked =
+        await _picker.pickImage(source: ImageSource.gallery);
+    image = XFile(imagePicked!.path);
   }
 }

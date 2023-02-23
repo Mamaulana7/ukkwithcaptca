@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:date_field/date_field.dart';
 import '../admin/permintaan/permintaan.dart';
 import '../admin/admin_riwayat/ad_riwayat.dart';
-import '../navbar.dart';
+import '../navbar/navbar.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:io';

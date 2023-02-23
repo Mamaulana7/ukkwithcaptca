@@ -109,7 +109,7 @@ class riwayatstatus extends StatelessWidget {
                   width: 150,
                   child: TextButton(
                     onPressed: () {
-                      controller.deleteData(riwayatstat[Index].dataid);
+                      controller.deleteData(riwayatstat['dataid']);
                     },
                     child: Text(
                       'Hapus',

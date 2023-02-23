@@ -10,7 +10,7 @@ import 'package:intl/intl.dart';
 import '../pengunjung/data/baru.dart';
 import '../pengunjung/riwayat/riwayat.dart';
 
-import 'navbar.dart';
+import 'navbar/navbar.dart';
 
 
 

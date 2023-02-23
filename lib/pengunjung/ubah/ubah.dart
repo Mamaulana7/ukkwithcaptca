@@ -34,7 +34,7 @@ class _UbahPageState extends State<UbahPage> {
         ),
       ),
       body: FutureBuilder<DocumentSnapshot<Object?>>(
-          future: controller.dapatkanData(Get.arguments),
+          future: controller.dapatkanData(Get.arguments['dataid']),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               var getdata = snapshot.data!.data() as Map<String, dynamic>;
@@ -148,7 +148,7 @@ class _UbahPageState extends State<UbahPage> {
                                 controller.namaC.text,
                                 controller.asalC.text,
                                 controller.suhuC.text,
-                                Get.arguments),
+                                Get.arguments['dataid']),
                           ),
                         ),
                       ],

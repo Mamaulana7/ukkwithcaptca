@@ -12,10 +12,10 @@ import '../pengunjung/ubah/ubah.dart';
 import '../pengunjung/ubah/ubah_binding.dart';
 import '../registrasi/register.dart';
 import '../registrasi/registrasi_bindings.dart';
-import '../update_profile/update.dart';
-import '../update_profile/update_bindings.dart';
+import '../Profil/profil.dart';
 import '../login/login.dart';
 import '../pengunjung/data/binding.dart';
+import '../Profil/profil_binding.dart';
 
 class AppPages {
   AppPages._();
@@ -49,12 +49,12 @@ class AppPages {
       page: () => UbahPage(),
       binding: UbahBinding(),
     ),
-    // GetPage(
-    //   name: _Paths.PROFIL,
-    //   page: () => ProfileView(),
-    //   binding: ProfileBinding(),
-    //   transition: Transition.fadeIn,
-    // ),
+    GetPage(
+      name: _Paths.PROFIL,
+      page: () => ProfilPage(),
+      binding: ProfilBinding(),
+      transition: Transition.fadeIn,
+    ),
     // GetPage(
     //   name: _Paths.UPDATE_PROFILE,
     //   page: () => UpdateProfileView(),
@@ -88,7 +88,7 @@ abstract class Routes {
   static const BARU = _Paths.BARU;
   static const RIWAYAT = _Paths.RIWAYAT;
   static const UBAH = _Paths.UBAH;
-  static const UPDATE_PROFILE = _Paths.UPDATE_PROFILE;
+  static const PROFIL = _Paths.PROFIL;
   static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
   static const PERMINTAAN = _Paths.PERMINTAAN;
   static const LOGIN = _Paths.LOGIN;
@@ -99,6 +99,7 @@ abstract class _Paths {
   static const MENU = '/menu';
   static const ADMIN = '/admin';
   static const BARU = '/baru';
+  static const PROFIL = '/profil';
   static const RIWAYAT = '/riwayat';
   static const UBAH = '/ubah';
   static const UPDATE_PROFILE = '/update-profile';

@@ -244,64 +244,64 @@ class _RegisterPage extends State<RegisterPage> {
                                       !(controller.obsecureText.value);
                                 },
                               ),
-
                             ),
                           )),
                     ),
                     SizedBox(
                       height: 20,
                     ),
-                    Obx(
-                      () => Container(
-                        margin: EdgeInsets.only(left: 20, right: 20),
-                        padding: EdgeInsets.only(left: 5),
-                        width: 310,
-                        height: 38,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.black54,
-                                blurRadius: 2,
-                                offset: Offset(2, 2),
-                                spreadRadius: 0.1,
-                              ),
-                            ],
-                            borderRadius: BorderRadius.circular(5)),
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton2(
-                            hint: Text(
-                              'Saya Adalah',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Theme.of(context).hintColor,
-                              ),
+                    Container(
+                      margin: EdgeInsets.only(left: 20, right: 20),
+                      padding: EdgeInsets.only(left: 5),
+                      width: 310,
+                      height: 38,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black54,
+                              blurRadius: 2,
+                              offset: Offset(2, 2),
+                              spreadRadius: 0.1,
                             ),
-                            items: items
-                                .map(
-                                  (item) => DropdownMenuItem<String>(
-                                    value: item,
-                                    child: Text(
-                                      item,
-                                      style: TextStyle(
-                                        color: Color.fromARGB(255, 194, 20, 20),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20,
-                                      ),
+                          ],
+                          borderRadius: BorderRadius.circular(5)),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton2(
+                          hint: Text(
+                            'Saya Adalah',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Theme.of(context).hintColor,
+                            ),
+                          ),
+                          items: items
+                              .map(
+                                (item) => DropdownMenuItem<String>(
+                                  value: item,
+                                  child: Text(
+                                    item,
+                                    style: TextStyle(
+                                      color: Color.fromARGB(255, 194, 20, 20),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
                                     ),
                                   ),
-                                )
-                                .toList(),
-                            onChanged: (value) {
-                              if (controller.isLoading.isFalse) {
-                                controller.selectedValue = value as String?;
-                              }
-                            },
-                            value: controller.selectedValue,
-                            buttonHeight: 40,
-                            buttonWidth: 140,
-                            itemHeight: 40,
-                          ),
+                                ),
+                              )
+                              .toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              controller.selectedValue = value as String?;
+                            });
+                            // if (controller.isLoading.isFalse) {
+                            //   controller.selectedValue = value as String?;
+                            // }
+                          },
+                          value: controller.selectedValue,
+                          buttonHeight: 40,
+                          buttonWidth: 140,
+                          itemHeight: 40,
                         ),
                       ),
                     ),
