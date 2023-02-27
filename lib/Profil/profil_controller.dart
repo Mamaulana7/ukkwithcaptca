@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -9,6 +10,10 @@ import 'package:image_picker/image_picker.dart';
 
 class ProfilController extends GetxController {
   RxBool isLoading = false.obs;
+
+  TextEditingController emailC = TextEditingController();
+  TextEditingController passwordC = TextEditingController();
+  TextEditingController usernameC = TextEditingController();
   TextEditingController dataidC = TextEditingController();
 
   FirebaseAuth auth = FirebaseAuth.instance;
@@ -19,18 +24,32 @@ class ProfilController extends GetxController {
 
   Future<void> AddProfil() async {
     isLoading.value = false;
-    try{
+    try {
       if (image != null) {
         // upload image ke firestore
-        File file =File(image!.path);
+        File file = File(image!.path);
         await storage.ref(dataidC.text).putFile(file);
       }
       image = null;
       String avatar = await storage.ref(dataidC.text).getDownloadURL();
-      DocumentReference respons = firestore.collection('datauser').doc(dataidC.text);
+      DocumentReference respons =
+          firestore.collection('users').doc(dataidC.text);
       respons.set({
         "profil": avatar,
-        });
-    }catch(e){} 
+      });
+    } catch (e) {}
+  }
+
+  Future<DocumentSnapshot<Object?>> dapatkanData(String id) async {
+    DocumentReference data = firestore.collection("users").doc(id);
+    return data.get();
+  }
+
+  Future<void> editnama() async {
+    await editsnama();
+  }
+
+  editsnama(){
+
   }
 }

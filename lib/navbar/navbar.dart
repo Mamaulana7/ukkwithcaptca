@@ -40,7 +40,7 @@ class NavBar extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text('Profil'),
+            title: Text('Pengaturan'),
             onTap: (() {
               Navigator.pushNamed(context, '/profil');
             }),
