@@ -71,6 +71,7 @@ flutter:
     - assets/coffe/
     - assets/food/
     - assets/drink/
+    - assets/logoapp.png
     - assets/ayang.jpg
   #   - images/a_dot_ham.jpeg
 

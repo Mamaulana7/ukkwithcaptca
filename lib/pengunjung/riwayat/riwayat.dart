@@ -47,37 +47,6 @@ class _RiwayatPageState extends State<RiwayatPage> {
                     SizedBox(
                       height: 12,
                     ),
-                    Container(
-                      padding: EdgeInsets.only(left: 12, right: 12, top: 2),
-                      width: 350,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        borderRadius: BorderRadius.circular(5),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black54,
-                            blurRadius: 2,
-                            offset: Offset(2, 2),
-                            spreadRadius: 0.1,
-                          ),
-                        ],
-                      ),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          icon: Icon(
-                            Icons.search,
-                            size: 20,
-                          ),
-                          hintText: "Urutkan Tanggal",
-                          border:
-                              OutlineInputBorder(borderSide: BorderSide.none),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 12,
-                    ),
                     Flexible(
                       child: Container(
                         width: MediaQuery.of(context).size.width,

@@ -33,7 +33,7 @@ class LoginPage extends GetView<LoginController> {
             Container(
               padding: EdgeInsets.only(top: 70),
               width: MediaQuery.of(context).size.width,
-              height: 180,
+              height: 240,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.centerLeft,
@@ -44,13 +44,8 @@ class LoginPage extends GetView<LoginController> {
                   ],
                 ),
               ),
-              child: Text(
-                "OTO",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  fontSize: 45,
-                ),
+              child: Image.asset(
+                'assets/logoapp.png',
               ),
             ),
             Flexible(

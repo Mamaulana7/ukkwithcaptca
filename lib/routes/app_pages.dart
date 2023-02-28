@@ -1,4 +1,7 @@
 import 'package:get/get.dart';
+import 'package:kantin/edit_pengaturan/edit.dart';
+import 'package:kantin/edit_pengaturan/edit_binding.dart';
+import 'package:kantin/edit_pengaturan/edit_controller.dart';
 import '../admin/admin.dart';
 import '../admin/permintaan/permintaan.dart';
 import '../admin/permintaan/admin_binding.dart';
@@ -55,11 +58,11 @@ class AppPages {
       binding: ProfilBinding(),
       transition: Transition.fadeIn,
     ),
-    // GetPage(
-    //   name: _Paths.UPDATE_PROFILE,
-    //   page: () => UpdateProfileView(),
-    //   binding: UpdateProfileBinding(),
-    // ),
+    GetPage(
+      name: _Paths.EDIT_PENGATURAN,
+      page: () => EditPage(),
+      binding: EditBinding(),
+    ),
     GetPage(
       name: _Paths.CHANGE_PASSWORD,
       page: () => ChangePasswordView(),
@@ -93,6 +96,7 @@ abstract class Routes {
   static const PERMINTAAN = _Paths.PERMINTAAN;
   static const LOGIN = _Paths.LOGIN;
   static const REGISTRATION = _Paths.REGISTRATION;
+  static const EDIT_PENGATURAN = _Paths.EDIT_PENGATURAN;
 }
 
 abstract class _Paths {
@@ -102,7 +106,7 @@ abstract class _Paths {
   static const PROFIL = '/profil';
   static const RIWAYAT = '/riwayat';
   static const UBAH = '/ubah';
-  static const UPDATE_PROFILE = '/update-profile';
+  static const EDIT_PENGATURAN = '/edit';
   static const CHANGE_PASSWORD = '/change-password';
   static const PERMINTAAN = '/permintaan';
   static const LOGIN = '/login';

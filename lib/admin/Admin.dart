@@ -40,7 +40,7 @@ class _AdminPageState extends State<AdminPage> {
             title: Row(
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 60),
+                  padding: EdgeInsets.only(left: 80),
                   child: Text(
                     'Enjoy.',
                     style: TextStyle(

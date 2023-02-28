@@ -19,13 +19,29 @@ class AdminPermintaanController extends GetxController {
   TextEditingController terimaC = TextEditingController();
 
   Stream<QuerySnapshot<Object?>> Permintaan() {
-    final data = firestore.collection("datauser").where("status",isEqualTo: 0).snapshots();
+    final data = firestore
+        .collection("datauser")
+        .where("status", isEqualTo: 0)
+        .snapshots();
     return data;
   }
+
   Stream<QuerySnapshot<Object?>> Riwayatminta() {
-    final data = firestore.collection("datauser").where("status", isNotEqualTo: 0).snapshots();
+    final data = firestore
+        .collection("datauser")
+        .where("status", isNotEqualTo: 0)
+        .snapshots();
     return data;
   }
+
+ Query<Map<String, dynamic>> filterdata() {
+    final citiesRef = firestore
+        .collection("cities")
+        .orderBy("name", descending: true).limit(3);
+        return citiesRef;
+  }
+
+
 
   // Future<void> actionTerima() async {
   //   if (isLoading.isFalse) {
@@ -58,8 +74,7 @@ class AdminPermintaanController extends GetxController {
     isLoadingTolak.value = true;
     DocumentReference doc = firestore.collection("datauser").doc(dataid);
     try {
-      await doc.update({"status": status});
-      Get.back(); // Tutup Dialog
+      await doc.update({"status": status}); // Tutup Dialog
       status > 1
           ? CustomToast.successToast("Success", "Perjalanan Ditolak")
           : CustomToast.successToast("Success", "Perjalanan Diperbolehkan");
@@ -69,8 +84,7 @@ class AdminPermintaanController extends GetxController {
         title: "Terjadi kesalahan",
         middleText: "Tidak dapat merubah data",
         textConfirm: "Kembali",
-        onConfirm: () {
-        },
+        onConfirm: () {},
       );
     }
   }

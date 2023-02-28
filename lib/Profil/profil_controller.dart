@@ -20,6 +20,12 @@ class ProfilController extends GetxController {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   s.FirebaseStorage storage = s.FirebaseStorage.instance;
   final ImagePicker picker = ImagePicker();
+
+  Stream<DocumentSnapshot<Map<String, dynamic>>> pengaturandata() async* {
+    String uid = auth.currentUser!.uid;
+    yield* firestore.collection("users").doc(uid).snapshots();
+  }
+
   XFile? image;
 
   Future<void> AddProfil() async {
@@ -43,13 +49,5 @@ class ProfilController extends GetxController {
   Future<DocumentSnapshot<Object?>> dapatkanData(String id) async {
     DocumentReference data = firestore.collection("users").doc(id);
     return data.get();
-  }
-
-  Future<void> editnama() async {
-    await editsnama();
-  }
-
-  editsnama(){
-
   }
 }

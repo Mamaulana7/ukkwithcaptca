@@ -37,14 +37,10 @@ class RegistrationController extends GetxController {
           password: passC.text,
         );
 
-        if (image != null) {
-          File file = File(image!.path);
-          await storage.ref(emailC.text).putFile(file);
-        }
         //Pengecekan apakah akun sudah dibuatkan oleh firebase
         if (respondentCredential.user != null) {
           String uid = respondentCredential.user!.uid;
-          String avatar = await storage.ref(emailC.text).getDownloadURL();
+
           DocumentReference respondents =
               firestore.collection("users").doc(uid);
           //Menyimpan data ke firebase dengan menggunakan perintah set
@@ -53,7 +49,6 @@ class RegistrationController extends GetxController {
             "email": emailC.text,
             "username": nameC.text.trim(),
             "password": passC.text,
-            "profil": avatar,
             "created_at": DateTime.now().toIso8601String(),
             "role": selectedValue.toString(),
           });

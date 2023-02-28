@@ -7,6 +7,7 @@ class NavbarController extends GetxController {
 
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+  static NavbarController instance = Get.find();
 
   Stream<DocumentSnapshot<Map<String, dynamic>>> navbardata() async* {
     String uid = auth.currentUser!.uid;

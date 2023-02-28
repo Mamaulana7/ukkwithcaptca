@@ -51,12 +51,6 @@ class _PermintaanPageState extends State<PermintaanPage> {
                 ),
               ],
             ),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "Urutkan Tanggal",
-                border: OutlineInputBorder(borderSide: BorderSide.none),
-              ),
-            ),
           ),
           SizedBox(
             height: 12,
@@ -158,7 +152,7 @@ class _PermintaanPageState extends State<PermintaanPage> {
                               child: Row(
                                 children: [
                                   Text(
-                                    'Suhu: ${(admindata[index].data() as Map<String, dynamic>)["Suhu"]}',
+                                    'Suhu: ${(admindata[index].data() as Map<String, dynamic>)["Suhu"]} C',
                                     style: GoogleFonts.secularOne(
                                       textStyle: TextStyle(
                                         color: Color.fromARGB(255, 0, 0, 0),
@@ -181,7 +175,8 @@ class _PermintaanPageState extends State<PermintaanPage> {
                                 children: [
                                   Obx(
                                     () => Container(
-                                      margin: EdgeInsets.only(left: 20),
+                                      margin:
+                                          EdgeInsets.only(left: 14, top: 14),
                                       width: 160,
                                       height: 30,
                                       child: ElevatedButton(
@@ -214,8 +209,9 @@ class _PermintaanPageState extends State<PermintaanPage> {
                                   ),
                                   Obx(
                                     () => Container(
-                                      margin: EdgeInsets.only(left: 10),
-                                      width: 160,
+                                      margin:
+                                          EdgeInsets.only(left: 10, top: 14),
+                                      width: 150,
                                       height: 30,
                                       child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(

@@ -19,14 +19,6 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPage extends State<RegisterPage> {
-  File? image;
-  Future getImage() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? imagePicked =
-        await _picker.pickImage(source: ImageSource.gallery);
-    image = File(imagePicked!.path);
-  }
-
   DateTime? selectedDate;
   bool showPassword = false;
   int _selectedItemIndex = 0;
@@ -59,7 +51,7 @@ class _RegisterPage extends State<RegisterPage> {
             Container(
               padding: EdgeInsets.only(top: 70),
               width: MediaQuery.of(context).size.width,
-              height: 180,
+              height: 240,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.centerLeft,
@@ -70,13 +62,8 @@ class _RegisterPage extends State<RegisterPage> {
                   ],
                 ),
               ),
-              child: Text(
-                "OTO",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  fontSize: 45,
-                ),
+              child: Image.asset(
+                'assets/logoapp.png',
               ),
             ),
             Flexible(
@@ -106,45 +93,6 @@ class _RegisterPage extends State<RegisterPage> {
                           fontSize: 26,
                           fontWeight: FontWeight.w500,
                         ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          image != null
-                              ? Container(
-                                  height: 130,
-                                  width: 130,
-                                  decoration: BoxDecoration(
-                                    color: Color.fromARGB(209, 151, 165, 177),
-                                    borderRadius: BorderRadius.circular(120),
-                                    image: new DecorationImage(
-                                      image: new FileImage(image!),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                )
-                              : Container(),
-                          TextButton(
-                              style: TextButton.styleFrom(
-                                backgroundColor:
-                                    Color.fromARGB(255, 255, 85, 85),
-                              ),
-                              onPressed: (() async {
-                                await getImage();
-                              }),
-                              child: Text(
-                                'Pilih foto',
-                                style: GoogleFonts.secularOne(
-                                    color: Color.fromARGB(255, 255, 255, 255)),
-                              )),
-                        ],
                       ),
                     ),
                     SizedBox(

@@ -185,8 +185,9 @@ class _AdminRiwayatPage extends State<AdminRiwayatPage> {
                                     children: [
                                       Obx(
                                         () => Container(
-                                          margin: EdgeInsets.only(left: 20),
-                                          width: 160,
+                                          margin: EdgeInsets.only(
+                                              left: 20, top: 14),
+                                          width: 150,
                                           height: 30,
                                           child: ElevatedButton(
                                             style: ElevatedButton.styleFrom(
@@ -221,8 +222,9 @@ class _AdminRiwayatPage extends State<AdminRiwayatPage> {
                                       ),
                                       Obx(
                                         () => Container(
-                                          margin: EdgeInsets.only(left: 10),
-                                          width: 160,
+                                          margin: EdgeInsets.only(
+                                              left: 10, top: 14),
+                                          width: 150,
                                           height: 30,
                                           child: ElevatedButton(
                                             style: ElevatedButton.styleFrom(

@@ -12,8 +12,6 @@ import '../pengunjung/riwayat/riwayat.dart';
 
 import 'navbar/navbar.dart';
 
-
-
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
 
@@ -37,12 +35,13 @@ class _MenuPageState extends State<MenuPage> {
       child: Scaffold(
           drawer: NavBar(),
           appBar: AppBar(
+            iconTheme: IconThemeData(color: Color.fromARGB(255, 0, 0, 0)),
             elevation: 0,
             backgroundColor: Color.fromARGB(255, 188, 251, 255),
             title: Row(
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 60),
+                  padding: EdgeInsets.only(left: 80),
                   child: Text(
                     'Enjoy.',
                     style: TextStyle(

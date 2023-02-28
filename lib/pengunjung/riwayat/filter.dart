@@ -15,10 +15,9 @@ class riwayatstatus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Get.toNamed(Routes.PERMINTAAN, arguments: riwayatstat),
       child: Container(
         margin: EdgeInsets.only(left: 15, right: 15),
-        height: 150,
+        height: 140,
         decoration: BoxDecoration(
           color: Color.fromARGB(236, 144, 240, 247),
           borderRadius: BorderRadius.circular(9),
@@ -92,7 +91,7 @@ class riwayatstatus extends StatelessWidget {
                     (riwayatstat["status"] == 0)
                         ? "Status : Belum dibaca"
                         : (riwayatstat["status"] == 1)
-                            ? "Status : Diterima"
+                            ? "Status : Diperbolehkan"
                             : "Status : Ditolak",
                     style: TextStyle(
                       fontSize: 18,
@@ -116,7 +115,7 @@ class riwayatstatus extends StatelessWidget {
                       style: GoogleFonts.secularOne(
                         textStyle: TextStyle(
                           color: Colors.red,
-                          fontSize: 17,
+                          fontSize: 23,
                         ),
                       ),
                     ),
@@ -135,8 +134,8 @@ class riwayatstatus extends StatelessWidget {
                       'Ubah',
                       style: GoogleFonts.secularOne(
                         textStyle: TextStyle(
-                          color: Color.fromARGB(255, 7, 241, 27),
-                          fontSize: 17,
+                          color: Color.fromARGB(255, 0, 150, 12),
+                          fontSize: 23,
                         ),
                       ),
                     ),
