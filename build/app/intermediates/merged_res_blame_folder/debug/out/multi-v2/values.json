@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\ukk\\ukk-fixxxxxx\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "E:\\ukk\\aukj\\ukk-fixxxxxx\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\User\\.gradle\\caches\\transforms-3\\38e30c664341fe5bfcc1d9de04582443\\transformed\\browser-1.4.0\\res\\values\\values.xml",
@@ -95,6 +95,25 @@
                     }
                 },
                 {
+                    "source": "E:\\ukk\\aukj\\ukk-fixxxxxx\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "176,832",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "483,998"
+                    },
+                    "to": {
+                        "startLines": "1409,1414",
+                        "startColumns": "4,4",
+                        "startOffsets": "92086,92394",
+                        "endLines": "1413,1416",
+                        "endColumns": "12,12",
+                        "endOffsets": "92389,92558"
+                    }
+                },
+                {
                     "source": "C:\\Users\\User\\.gradle\\caches\\transforms-3\\f5fae9fcc96667721eb62da87dc86483\\transformed\\jetified-permissions-3.8\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2",
@@ -145,25 +164,6 @@
                         "startOffsets": "18081,22017",
                         "endColumns": "67,166",
                         "endOffsets": "18144,22179"
-                    }
-                },
-                {
-                    "source": "E:\\ukk\\ukk-fixxxxxx\\android\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "176,832",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "483,998"
-                    },
-                    "to": {
-                        "startLines": "1409,1414",
-                        "startColumns": "4,4",
-                        "startOffsets": "92086,92394",
-                        "endLines": "1413,1416",
-                        "endColumns": "12,12",
-                        "endOffsets": "92389,92558"
                     }
                 },
                 {

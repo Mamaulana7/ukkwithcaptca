@@ -51,6 +51,7 @@ class RegistrationController extends GetxController {
             "password": passC.text,
             "created_at": DateTime.now().toIso8601String(),
             "role": selectedValue.toString(),
+            "profil": "profil",
           });
 
           await respondentCredential.user!.sendEmailVerification();

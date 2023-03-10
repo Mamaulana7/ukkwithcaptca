@@ -5,9 +5,14 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kantin/navbar/navbar_call.dart';
 
-class NavBar extends StatelessWidget {
+class NavBar extends StatefulWidget {
   const NavBar({super.key});
 
+  @override
+  State<NavBar> createState() => _NavBar();
+}
+
+class _NavBar extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
@@ -37,10 +42,10 @@ class NavBar extends StatelessWidget {
                       ),
                       currentAccountPicture: CircleAvatar(
                         child: ClipOval(
-                          child: Image.asset(
-                            'assets/ayang.jpg',
-                            width: 90,
-                            height: 90,
+                          child: Image.network(
+                            (user["profil"] == null || user['profil'] == "")
+                                ? "https://ui-avatars.com/api/?name=${user['username']}/"
+                                : user['profil'],
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -54,11 +59,6 @@ class NavBar extends StatelessWidget {
                       onTap: (() {
                         Navigator.pushNamed(context, '/profil');
                       }),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.notifications),
-                      title: Text('Lapor'),
-                      onTap: () => null,
                     ),
                     Divider(
                       color: Colors.grey[600],
@@ -81,12 +81,12 @@ class NavBar extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                          margin: EdgeInsets.only(top: 260, left: 90),
+                          margin: EdgeInsets.only(top: 470, left: 90),
                           color: Color.fromARGB(0, 255, 193, 7),
                           child: Icon(Icons.copyright),
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: 260),
+                          margin: EdgeInsets.only(top: 472),
                           padding: EdgeInsets.only(top: 5),
                           decoration: BoxDecoration(
                             color: Color.fromARGB(0, 69, 123, 160),

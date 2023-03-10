@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+
+    <title>reCAPTCHA</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: transparent;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        position: relative;
+    }
+    .close{
+        appearance: none;
+        position: absolute;
+        top: 10%;
+        right: 10%;
+        color: white;
+        font-size: 2rem;
+        background-color: rgba(0,0,0,0.5);
+        outline: none;
+        border: none;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<body>
+    <button class="close">&times;</button>
+    <form action="?" method="POST">
+        <div class="g-recaptcha"
+            data-sitekey="6LesmdgkAAAAAIxHKRUXRrVXLmMvc0jVh4J1xej5"
+            data-callback="captchaCallback">
+        </div>
+
+    </form>
+    <script>
+        document.querySelector('.close').addEventListener('click',()=>{
+            if(typeof Close!=="undefined"){
+                Close.postMessage(true);
+            }
+        })
+        function captchaCallback(response){
+            console.log(response);
+            if(typeof Captcha!=="undefined"){
+                Captcha.postMessage(response);
+            }
+        }
+        
+    </script>
+</body>
+</html>
+
+<html>
+<body>

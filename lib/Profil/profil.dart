@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -37,8 +39,14 @@ class _ProfilPageState extends State<ProfilPage> {
               case ConnectionState.done:
                 Map<String, dynamic> getdata = snapshot.data!.data()!;
                 return Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(''),
+                    ),
+                  ),
                   width: 450,
-                  height: 790,
+                  height: 800,
                   child: Column(
                     children: [
                       GestureDetector(
@@ -47,7 +55,7 @@ class _ProfilPageState extends State<ProfilPage> {
                           width: MediaQuery.of(context).size.width,
                           height: 90,
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 255, 255, 255),
+                            color: Color.fromARGB(235, 255, 255, 255),
                           ),
                           child: Row(
                             children: [
@@ -60,11 +68,11 @@ class _ProfilPageState extends State<ProfilPage> {
                               ),
                               Container(
                                 padding: EdgeInsets.only(left: 20, top: 20),
-                                width: 230,
+                                width: 200,
                                 child: Column(
                                   children: [
                                     Container(
-                                      padding: EdgeInsets.only(right: 100),
+                                      padding: EdgeInsets.only(right: 90),
                                       child: Text(
                                         'Personal Info',
                                         style: GoogleFonts
